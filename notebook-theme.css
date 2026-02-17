@@ -1,5 +1,6 @@
 /* ===== FADED BEIGE RETRO THEME ===== */
 /* Palette: warm parchment, dusty rose, muted teal, terracotta, sage */
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
 /* Base — warm cream with surreal subtle gradient */
 body {
@@ -11,7 +12,7 @@ body {
     /* Base parchment */
     #f0e6d3 !important;
   color: #4a3728 !important;
-  font-family: "Courier New", "Lucida Console", monospace !important;
+  font-family: "VT323", "VT323", monospace !important;
 }
 
 /* Remove default padding/margins from notebook container */
@@ -33,7 +34,7 @@ body {
 .input_prompt,
 .prompt {
   color: #7a9a8a !important;
-  font-family: "Courier New", monospace !important;
+  font-family: "VT323", monospace !important;
   font-weight: bold !important;
 }
 
@@ -53,8 +54,8 @@ body {
 .input_area pre,
 .highlight pre {
   color: #4a3728 !important;
-  font-family: "Courier New", "Lucida Console", monospace !important;
-  font-size: 13px !important;
+  font-family: "VT323", "VT323", monospace !important;
+  font-size: 15px !important;
 }
 
 /* Syntax highlighting — warm muted palette */
@@ -94,14 +95,14 @@ body {
 
 .output_subarea pre {
   color: #5a6a50 !important;
-  font-family: "Courier New", monospace !important;
+  font-family: "VT323", monospace !important;
 }
 
 /* ===== MARKDOWN CELLS ===== */
 .text_cell_render,
 .rendered_html {
   color: #4a3728 !important;
-  font-family: "Courier New", "Lucida Console", monospace !important;
+  font-family: "VT323", "VT323", monospace !important;
 }
 
 /* Headings — warm, no glow */
@@ -109,19 +110,19 @@ body {
   color: #a06060 !important;
   border-bottom: 1px solid rgba(160, 96, 96, 0.25) !important;
   padding-bottom: 8px !important;
-  font-family: "Courier New", monospace !important;
+  font-family: "VT323", monospace !important;
 }
 
 .rendered_html h2 {
   color: #5a8a8a !important;
   border-bottom: 1px solid rgba(90, 138, 138, 0.2) !important;
   padding-bottom: 6px !important;
-  font-family: "Courier New", monospace !important;
+  font-family: "VT323", monospace !important;
 }
 
 .rendered_html h3 {
   color: #8a7040 !important;
-  font-family: "Courier New", monospace !important;
+  font-family: "VT323", monospace !important;
 }
 
 /* Links — terracotta */

@@ -72,61 +72,53 @@ function focusNotebook() {
   }
 }
 
-// ===== Easter Egg Jokes =====
-var jokes = {
-  Start: [
-    "int main() {\n  // TODO: figure out life\n  return 0;\n}",
-    "Have you tried turning your career off and on again?",
-    "$ sudo rm -rf /doubts/*\nrm: cannot remove '/doubts/imposter_syndrome': Permission denied",
-    "while(alive) {\n  eat();\n  sleep();\n  code();\n}",
-    "Error: 'motivation' was not declared in this scope"
-  ],
-  File: [
-    "#include <life.h>\nError: 'happiness' not found.\nDid you mean 'deadlines'?",
-    "fopen(\"my_code.cpp\", \"r\");\n// File is 3000 lines.\n// No comments.\n// Written by me. Last Tuesday.\n// I don't recognize any of it.",
-    "Save as... untitled_final_FINAL_v3_ACTUALLY_FINAL.cpp"
-  ],
-  Edit: [
-    "// This line took 4 hours to write\nconst auto& x = std::move(y);\n// I still don't know what it does",
-    "git commit -m \"fixed it\"\ngit commit -m \"actually fixed it\"\ngit commit -m \"ok actually fixed it for real this time\"\ngit commit -m \"I lied\"",
-    "ctrl+z ctrl+z ctrl+z ctrl+z ctrl+z\n\n... I should have used version control"
-  ],
-  View: [
-    "std::cout << *ptr;\n// Segfault.\n// ptr was pointing at my will to live.\n// Also null.",
-    "Debugger says the variable is 'optimized out'.\nJust like my hopes and dreams.",
-    "cout << \"The view from here\" << endl;\n// [Undefined Behavior]\n// But somehow it works on my machine"
-  ],
-  Cell: [
-    "malloc(sizeof(braincell));\n// Returns NULL.\n// Not enough memory.\n// Story of my life.",
-    "free(last_braincell);\n// double free detected\n// I didn't even have one to begin with",
-    "new int[INT_MAX];\n// std::bad_alloc\n// Just like my memory during exams"
-  ],
-  Kernel: [
-    "Kernel panic - not syncing: VFS: Unable to mount root fs\n\n...just like me at 3am before a deadline",
-    "kill -9 $(pidof motivation)\nNo matching processes found.",
-    "sudo reboot\n\nI wish I could do this to my semester."
-  ],
-  Help: [
-    "Searching Stack Overflow...\n\n\"This question was closed as a duplicate.\"\n\nThe duplicate was also closed as a duplicate.",
-    "man happiness\nNo manual entry for happiness\n\nSee also: man coffee",
-    "// Dear future me:\n// If you're reading this, I'm sorry.\n// I was mass free()ing at 4am\n// Good luck.\n//    - Past you"
-  ]
-};
+// ===== Easter Eggs — Hallmark ML Papers =====
+var papers = [
+  { title: "Attention Is All You Need", authors: "Vaswani et al., 2017", url: "https://arxiv.org/abs/1706.03762" },
+  { title: "ImageNet Classification with Deep CNNs (AlexNet)", authors: "Krizhevsky et al., 2012", url: "https://arxiv.org/abs/1512.00567" },
+  { title: "Generative Adversarial Networks", authors: "Goodfellow et al., 2014", url: "https://arxiv.org/abs/1406.2661" },
+  { title: "Deep Residual Learning (ResNet)", authors: "He et al., 2015", url: "https://arxiv.org/abs/1512.03385" },
+  { title: "BERT: Pre-training of Deep Bidirectional Transformers", authors: "Devlin et al., 2018", url: "https://arxiv.org/abs/1810.04805" },
+  { title: "Playing Atari with Deep Reinforcement Learning", authors: "Mnih et al., 2013", url: "https://arxiv.org/abs/1312.5602" },
+  { title: "Dropout: A Simple Way to Prevent Overfitting", authors: "Srivastava et al., 2014", url: "https://arxiv.org/abs/1207.0580" },
+  { title: "Adam: A Method for Stochastic Optimization", authors: "Kingma & Ba, 2014", url: "https://arxiv.org/abs/1412.6980" },
+  { title: "Batch Normalization", authors: "Ioffe & Szegedy, 2015", url: "https://arxiv.org/abs/1502.03167" },
+  { title: "GPT: Language Models are Unsupervised Multitask Learners", authors: "Radford et al., 2019", url: "https://arxiv.org/abs/2005.14165" },
+  { title: "Denoising Diffusion Probabilistic Models", authors: "Ho et al., 2020", url: "https://arxiv.org/abs/2006.11239" },
+  { title: "Neural Machine Translation by Jointly Learning to Align and Translate", authors: "Bahdanau et al., 2014", url: "https://arxiv.org/abs/1409.0473" },
+  { title: "Variational Autoencoders (VAE)", authors: "Kingma & Welling, 2013", url: "https://arxiv.org/abs/1312.6114" },
+  { title: "U-Net: Convolutional Networks for Biomedical Image Segmentation", authors: "Ronneberger et al., 2015", url: "https://arxiv.org/abs/1505.04597" },
+  { title: "Very Deep Convolutional Networks (VGGNet)", authors: "Simonyan & Zisserman, 2014", url: "https://arxiv.org/abs/1409.1556" },
+  { title: "Mastering the Game of Go (AlphaGo)", authors: "Silver et al., 2016", url: "https://arxiv.org/abs/1607.01491" },
+  { title: "Word2Vec: Efficient Estimation of Word Representations", authors: "Mikolov et al., 2013", url: "https://arxiv.org/abs/1301.3781" },
+  { title: "NeRF: Representing Scenes as Neural Radiance Fields", authors: "Mildenhall et al., 2020", url: "https://arxiv.org/abs/2003.08934" },
+  { title: "CLIP: Learning Transferable Visual Models", authors: "Radford et al., 2021", url: "https://arxiv.org/abs/2103.00020" },
+  { title: "Scaling Laws for Neural Language Models", authors: "Kaplan et al., 2020", url: "https://arxiv.org/abs/2001.08361" },
+  { title: "An Image is Worth 16x16 Words (ViT)", authors: "Dosovitskiy et al., 2020", url: "https://arxiv.org/abs/2010.11929" },
+  { title: "GoogLeNet / Inception", authors: "Szegedy et al., 2014", url: "https://arxiv.org/abs/1409.4842" },
+  { title: "Sequence to Sequence Learning with Neural Networks", authors: "Sutskever et al., 2014", url: "https://arxiv.org/abs/1409.3215" },
+  { title: "StyleGAN: A Style-Based Generator Architecture", authors: "Karras et al., 2018", url: "https://arxiv.org/abs/1812.04948" },
+  { title: "PPO: Proximal Policy Optimization Algorithms", authors: "Schulman et al., 2017", url: "https://arxiv.org/abs/1707.06347" },
+  { title: "The Lottery Ticket Hypothesis", authors: "Frankle & Carlin, 2018", url: "https://arxiv.org/abs/1803.03635" },
+  { title: "Llama 2: Open Foundation and Fine-Tuned Chat Models", authors: "Touvron et al., 2023", url: "https://arxiv.org/abs/2307.09288" },
+  { title: "FlashAttention: Fast and Memory-Efficient Attention", authors: "Dao et al., 2022", url: "https://arxiv.org/abs/2205.14135" }
+];
+
+function getRandomPaper() {
+  return papers[Math.floor(Math.random() * papers.length)];
+}
 
 function showJoke(category) {
-  var pool = jokes[category];
-  var joke = pool[Math.floor(Math.random() * pool.length)];
-  showDialog(category + '.cpp', joke);
+  var paper = getRandomPaper();
+  showPaperDialog(category, paper);
 }
 
 function toggleStartMenu() {
-  var pool = jokes.Start;
-  var joke = pool[Math.floor(Math.random() * pool.length)];
-  showDialog('system32.exe', joke);
+  var paper = getRandomPaper();
+  showPaperDialog('Start', paper);
 }
 
-function showDialog(title, message) {
-  // Remove existing dialog if any
+function showPaperDialog(category, paper) {
   var existing = document.getElementById('joke-dialog');
   if (existing) existing.remove();
 
@@ -137,17 +129,19 @@ function showDialog(title, message) {
 
   dialog.innerHTML =
     '<div class="title-bar">' +
-      '<div class="title-bar-text">' + title + '</div>' +
+      '<div class="title-bar-text">arxiv.exe — ' + category + '</div>' +
       '<div class="title-bar-controls">' +
         '<button aria-label="Close" onclick="document.getElementById(\'joke-dialog\').remove()"></button>' +
       '</div>' +
     '</div>' +
-    '<div class="window-body" style="padding:16px;display:flex;gap:12px;align-items:flex-start;">' +
-      '<span style="font-size:32px;flex-shrink:0;">&#9888;</span>' +
-      '<pre style="font-family:\'Courier New\',monospace;font-size:11px;white-space:pre-wrap;word-wrap:break-word;margin:0;flex:1;">' + message + '</pre>' +
+    '<div class="window-body" style="padding:16px;">' +
+      '<p style="font-size:11px;margin-bottom:8px;color:#808080;">Recommended reading:</p>' +
+      '<p style="font-weight:bold;font-size:13px;margin-bottom:4px;">' + paper.title + '</p>' +
+      '<p style="font-size:11px;color:#666;margin-bottom:12px;">' + paper.authors + '</p>' +
     '</div>' +
-    '<div style="padding:0 16px 12px;text-align:center;">' +
-      '<button style="min-width:80px;" onclick="document.getElementById(\'joke-dialog\').remove()">OK</button>' +
+    '<div style="padding:0 16px 12px;display:flex;gap:8px;justify-content:center;">' +
+      '<button style="min-width:80px;" onclick="window.open(\'' + paper.url + '\',\'_blank\');document.getElementById(\'joke-dialog\').remove()">Read Paper</button>' +
+      '<button style="min-width:80px;" onclick="document.getElementById(\'joke-dialog\').remove()">Later</button>' +
     '</div>';
 
   document.body.appendChild(dialog);
