@@ -1,283 +1,85 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jerry Han</title>
+  <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://unpkg.com/98.css">
+  <link rel="stylesheet" href="win95.css">
+</head>
+<body>
+  <!-- Desktop -->
+  <div id="desktop">
+    <!-- Desktop Icons -->
+    <div id="desktop-icons">
+      <div class="desktop-icon" ondblclick="openNotebook()">
+        <div class="desktop-icon-img">📓</div>
+        <div class="desktop-icon-label">My Resume.ipynb</div>
+      </div>
+      <div class="desktop-icon" ondblclick="window.location.href='mailto:jh1161@princeton.edu'">
+        <div class="desktop-icon-img">📧</div>
+        <div class="desktop-icon-label">Email.exe</div>
+      </div>
+      <div class="desktop-icon" ondblclick="window.open('https://github.com/jerryhan60/','_blank')">
+        <div class="desktop-icon-img">💾</div>
+        <div class="desktop-icon-label">GitHub.lnk</div>
+      </div>
+      <div class="desktop-icon" ondblclick="window.open('https://linkedin.com/in/jerry-han/','_blank')">
+        <div class="desktop-icon-img">🔗</div>
+        <div class="desktop-icon-label">LinkedIn.lnk</div>
+      </div>
+      <div class="desktop-icon" ondblclick="window.open('data/resume.pdf','_blank')">
+        <div class="desktop-icon-img">📄</div>
+        <div class="desktop-icon-label">CV.pdf</div>
+      </div>
+    </div>
 
-    <title>Jerry Han</title>
+    <!-- Notebook Window -->
+    <div id="notebook-window" class="window">
+      <div class="title-bar" id="notebook-title-bar">
+        <div class="title-bar-text">Jerry Han - Resume.ipynb - Jupyter Notebook</div>
+        <div class="title-bar-controls">
+          <button aria-label="Minimize" onclick="minimizeWindow()"></button>
+          <button aria-label="Maximize" id="maximize-btn" onclick="toggleMaximize()"></button>
+          <button aria-label="Close" onclick="closeWindow()"></button>
+        </div>
+      </div>
+      <div class="menu-bar">
+        <ul>
+          <li>File</li>
+          <li>Edit</li>
+          <li>View</li>
+          <li>Cell</li>
+          <li>Kernel</li>
+          <li>Help</li>
+        </ul>
+      </div>
+      <div class="window-body" id="notebook-body">
+        <iframe id="notebook-iframe" src="notebook.html" title="Resume Notebook"></iframe>
+      </div>
+      <div class="status-bar">
+        <p class="status-bar-field">Python 3 | Idle</p>
+        <p class="status-bar-field">Trusted</p>
+      </div>
+    </div>
+  </div>
 
-    <meta name="author" content="Jerry Han">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="stylesheet.css">
-    
-  </head>
+  <!-- Taskbar -->
+  <div id="taskbar">
+    <button id="start-button" onclick="toggleStartMenu()">
+      <span id="start-logo">🪟</span> Start
+    </button>
+    <div class="taskbar-divider"></div>
+    <button id="taskbar-notebook-btn" class="taskbar-window-btn active" onclick="focusNotebook()">
+      📓 Resume.ipynb
+    </button>
+    <div class="taskbar-spacer"></div>
+    <div id="system-tray">
+      <span id="clock"></span>
+    </div>
+  </div>
 
-
-  <body>
-
-    
-    <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-      <tr style="padding:0px">
-        <td style="padding:0px">
-          <!-- Header -->
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr style="padding:0px">
-              <td style="padding:2.5%;width:63%;vertical-align:middle">
-                <p class="name" style="text-align: center;">
-                  Jerry Han 
-                </p>
-                <p>I'm a rising sophomore at <a href="https://www.princeton.edu/">Princeton University</a> majoring in Mathematics and Computer Science.
-                </p>
-                <p>
-                  I am currently exploring a generative AI startup and conducting research in computer vision at the <a href="https://pvl.cs.princeton.edu/">Princeton Vision & Learning Lab</a>. I am an <a href="https://ipho-unofficial.org/timeline/2020/">IPhO gold medalist</a> and veteran of the Singapore Army, where I also received the Soldier of the Year award.
-                </p>
-                <p>
-                  At Princeton, I am a member of the Princeton Undergraduate Capital Partners, Association for Computing Machinery and the treasurer of the Malaysian and Singapore Association. 
-                </p>
-                <p>
-                  In my free time, I enjoy billiards, boxing, card games, foosball and travelling. I avidly follow MMA and I support Real Madrid.
-                </p>
-                <p style="text-align:center">
-                  <a href="mailto:jh1161@princeton.edu">Email</a> &nbsp;/&nbsp;
-                  <a href="data/resume.pdf">CV</a> &nbsp;/&nbsp;
-                  <a href="https://github.com/jerryhan60/">Github</a> &nbsp;/&nbsp;
-                  <a href="https://linkedin.com/in/jerry-han/">LinkedIn</a>
-                </p>
-              </td>
-              <td style="padding:2.5%;width:40%;max-width:40%">
-                <a href="images/profile.jpg"><img style="width:100%;max-width:100%;object-fit: cover; border-radius: 50%;" alt="profile photo" src="images/profile.jpg" class="hoverZoomLink"></a>
-              </td>
-            </tr>
-          </tbody></table>
-
-          <!-- Professional Experience -->
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-              <tr>
-              <td style="padding:20px;width:100%;vertical-align:middle">
-                <h2>Professional Experience</h2>
-                <p>
-                  My professional experiences span across a variety of fields, including software engineering, AI research, quantitative research, venture capital and entrepreneurship.
-                </p>
-              </td>
-            </tr>
-          </tbody></table>
-
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-              <tr>
-                <td style="padding:20px;width:25%;vertical-align:middle">
-                  <div class="zero">
-                    <img src='images/stealth.png' width=100%>
-                  </div>
-                </td>
-                <td style="padding:20px;width:75%;vertical-align:middle">
-                  <b>Co-founder of Stealth AI startup, Summer 2024.</b>
-                  <br>
-                   <p> Co-founded a startup at the intersection of consumer social and generative artificial intelligence, supported by <a href="http://robots.stanford.edu/">Sebastian Thrun</a> & Hillspire and mentored by <a href="https://ameerhajali.github.io">Ameer Haj-Ali</a> & <a href="https://haas.berkeley.edu/faculty/charron-david/">David Charron</a>. I worked on end-to-end development of mobile applications, recommendation algorithms, generative AI & agentic AI systems. I onboarded 106 clients and accumulated >13K views across various social media channels.</p>
-                  </td>
-              </tr>
-              <tr>
-                <td style="padding:20px;width:25%;vertical-align:middle;text-align:center">
-                  <div class="zero">
-                    <img src='images/princeton.svg' width=50%>
-                  </div>
-                </td>
-                <td style="padding:20px;width:75%;vertical-align:middle">
-                  <p><b>AI Researcher at the Princeton Vision and Learning Lab, Spring 2024.</b></p>
-                 
-                  <p>Image segmentation and pose detection for object simultaneous localization and mapping (SLAM). Working in collaboration with <a href="https://www.cs.princeton.edu/~jiadeng/">Jia Deng</a> and <a href="https://nj-wusiyang.github.io/">Siyang Wu</a>. </p>
-                </td>
-              </tr>
-              <tr>
-              <td style="padding:20px;width:25%;vertical-align:middle;text-align:center;">
-                <div class="zero">
-                  <img src='images/PUCP.jpg' width=50%>
-                </div>
-                </td>
-              <td style="padding:20px;width:75%;vertical-align:middle">
-                <p> <b>Diligence Analyst, Princeton Undergraduate Capital Partners, 2023 - Current.</b></p>
-                <p> Conducted due diligence analysis which informed investment decisions for a diversified conglomerate’s asset management arm. Completed 7 industry deep dives into ESG integration across multiple asset classes including Fixed Income and Public Equities. Sourced and pitched 2 new AI developer tooling startups which informed investment decisions for a partner at Sequoia Capital.</p>
-            </td>
-              </tr>
-              <tr>
-                <td style="padding:20px;width:25%;vertical-align:middle;text-align:center;">
-                  <div class="zero">
-                    <img src='images/GIC.jpg' width=50%>
-                  </div>
-                  </td>
-                <td style="padding:20px;width:75%;vertical-align:middle">
-                  <p> <b>Quantitative Research Intern, Government of Singapore Investment Corporation (GIC), 2023</b></p>
-                  <p> Developed a new portfolio construction methodology based on Monte Carlo simulations and scenario analyses, which was incorporated into GIC’s systematic strategies ($360 billion AUM). Constructed a stochastic volatility model to simulate scenarios and price derivatives for Fixed Income and Public Equities. Formulated efficient convex and numerical optimization procedures (15x increase in efficiency) for finding optimal portfolio exposures and trade structures which helped a team of ~30 traders refine their trading strategies. Encapsulated these procedures into purpose-built software packages in R and C++.</p>
-              </tr>
-          </tbody></table>
-
-        <!-- Projects section-->
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr>
-            <td style="padding:20px;width:100%;vertical-align:middle">
-              <h2>Projects</h2>
-            </td>
-          </tr>
-        </tbody></table>
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-
-
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr>
-              <td style="padding:20px;width:25%;vertical-align:middle">
-                <div class="zero">
-                  <img src='images/stealth.png' width=100%>
-                </div>
-              </td>
-              <td style="padding:20px;width:75%;vertical-align:middle">
-                <b>SearchDestroy</b>
-                <br>
-                 <p> Algorithm to sweep an area with multiple drones in the most time efficient way; efficient parametrization of search area and ensuring robustness of algorithm under adversarial interference. Robust multi-drone search algorithm: DARP + heuristics to handle drone loss and online path re-computation. Physics simulation and visualization using AirSim; awarded rank 2nd at AGI House Hackathon (Summer 2024). </p>
-                </td>
-            </tr>
-            <tr>
-              <td style="padding:20px;width:25%;vertical-align:middle;text-align:center">
-                <div class="zero">
-                  <img src='images/hackprinceton.png' width=100%>
-                </div>
-              </td>
-              <td style="padding:20px;width:75%;vertical-align:middle">
-                <p><b>Moco</b></p>
-               
-                <p>App for users to cast a “charm” to protect themselves without having to directly interact with their phone. 3D motion tracking app built in Python, React and SwiftUI for contactless gesture-based interaction with smartphones. Awarded Best Overall Hack at HackPrinceton (Fall 2023). </p>
-                <p> <a href="https://devpost.com/software/moco">Devpost</a> </p>
-              </td>
-            </tr>
-            <tr>
-              <td style="padding:20px;width:25%;vertical-align:middle;text-align:center">
-                <div class="zero">
-                  <img src='images/antidote.png' width=100%>
-                </div>
-              </td>
-              <td style="padding:20px;width:75%;vertical-align:middle">
-                <p><b>ANTIDOTE: Artificial Neural Network Trojan Detection Using Topological Data Analysis Estimators</b></p>
-               
-                <p>Developed a novel robust, scalable and explainable approach to detecting Trojaned neural networks using topological data analysis. In collaboration with Huxley Marvit, Rodrigo Porto and Matthew Banaag. </p>
-                <p>
-                  <a href="https://github.com/jerryhan60/TDA_SNNS">Github</a> &nbsp;/&nbsp;
-                  <a href="data/TDA_for_trojan_NNs.pdf">Paper</a> 
-                </p>
-              </td>
-            </tr>
-            <tr>
-            <td style="padding:20px;width:25%;vertical-align:middle;text-align:center;">
-              <div class="zero">
-                <img src='images/FTX.png' width=100%>
-              </div>
-              </td>
-            <td style="padding:20px;width:75%;vertical-align:middle">
-              <p> <b>Algorithmic trading of cryptocurrency futures</b></p>
-              <p> Traded 12 cryptocurrency derivatives with a monthly volume >$1 million and monthly return of 11%. Statistical analysis of market participants’ trading patterns and market microstructure. Algorithmic trading program in Python to execute trades with 20x leverage with trade frequency of under 5 minutes. </p>
-          </td>
-            </tr>
-            <tr>
-              <td style="padding:20px;width:25%;vertical-align:middle;text-align:center;">
-                <div class="zero">
-                  <img src='images/dsta.svg' width=100%>
-                </div>
-                </td>
-              <td style="padding:20px;width:75%;vertical-align:middle">
-                <p> <b><a href="https://www.dsta.gov.sg/brainhack">Brainhack</a> Champions </b></p>
-                <p> Developed a computer vision model (Detectron2 and ModaNet) for clothing identification. Kernel methods for obstacle detection and path-finding algorithm in Python for autonomous navigation of an obstacle course.</p>
-                <p>
-                  <a href="https://github.com/jerryhan60/CV-Robotics-Project">Github</a> 
-                </p>
-            </tr>
-        </tbody></table>
-        
-          <!-- Others section-->
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20"><tbody>
-            <tr>
-              <td>
-                <h2>Others</h2>
-              </td>
-            </tr>
-          </tbody></table>
-
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-
-
-            <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-              <tr>
-                <td style="padding:20px;width:25%;vertical-align:middle;text-align:center;">
-                  <div class="zero">
-                    <img src='images/awards.png' width=75%>
-                  </div>
-                </td>
-                <td style="padding:20px;width:75%;vertical-align:middle">
-                  <b>Awards</b>
-                  <br>
-                  <ul>
-                    <li>International Physics Olympiad Gold medal</li>
-                    <li>European Physics Olympiad Gold medal, rank 10</li>
-                    <li>Singapore Physics Olympiad rank 1</li>
-                    <li>2023 ICPC Greater NY: Rank 6 of 92, Best Freshman & Sophomore Team</li>
-                    <li>Ranked 12th out of over 9300 participants in the 2022 <a href="https://careers.shopee.sg/codeleague/">Shopee Code League</a>, also ranked 7th in the 2021 Shopee Code League</li>
-                    <li>Multiple gold medals in the <a href="https://noisg.comp.nus.edu.sg/noi/"> National Olympiad in Informatics </a></li>
-                    <li>2024 Putnam Competition rank top 500</li>
-                    <li>UChicago Trading Competition rank 2</li>
-                    <li>Berkeley Trading Competition rank 4</li>
-                  </ul>
-                  </td>
-              </tr>
-              <tr>
-                <td style="padding:20px;width:25%;vertical-align:middle;text-align:center">
-                  <div class="zero">
-                    <img src='images/courses.png' width=75%>
-                  </div>
-                </td>
-                <td style="padding:20px;width:75%;vertical-align:middle">
-                  <p><b>Courses</b></p>
-                  <ul>
-                    <li>
-                      MAT 216: Multivariable Analysis and Linear Algebra, taught by Alexandru Ionescu
-                    </li>
-                    <li>
-                      COS 485: Neural Networks: Theory and Application, taught by Sebastian Seung
-                    </li>
-                    <li>
-                      COS 226: Algorithms and Data Structures, taught by Kevin Wayne and precepted by Robert Tarjan
-                    </li>
-                    <li>
-                      ORF 309: Probability and Stochastic Systems, taught by Mark Cerenzia
-                    </li>
-                    <li>
-                      ECO 310: Microeconomic Theory: A Math Approach, taught by Andrea Wilson
-                    </li>
-                    <li>
-                      CHV 310: Practical Ethics, taught by Peter Singer
-                    </li>
-                    <li>
-                      FRS 159: Rembrandt, taught by Ronni Baer
-                    </li>
-                    <li>
-                      FRS 114: The Glass Class, taught by Vivian Feng
-                    </li>
-                    <li>
-                      WRI 138: Writing Seminar, taught by Diana Newby
-                    </li>
-                  </ul>
-                </td>
-              </tr>
-          </tbody></table>
-          
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr>
-              <td style="padding:0px">
-                <br>
-                <p style="text-align:right;font-size:small;">
-                   <a href="https://github.com/jonbarron/jonbarron_website">Credits for website template</a>. 
-                </p>
-              </td>
-            </tr>
-          </tbody></table>
-        </td>
-      </tr>
-    </table>
-  </body>
+  <script src="win95.js"></script>
+</body>
 </html>
