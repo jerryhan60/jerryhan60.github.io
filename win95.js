@@ -133,7 +133,7 @@ function showDialog(title, message) {
   var dialog = document.createElement('div');
   dialog.id = 'joke-dialog';
   dialog.className = 'window';
-  dialog.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:99999;min-width:340px;max-width:480px;';
+  dialog.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:99999;min-width:280px;max-width:480px;width:calc(100vw - 40px);';
 
   dialog.innerHTML =
     '<div class="title-bar">' +
@@ -196,14 +196,41 @@ function updateClock() {
 updateClock();
 setInterval(updateClock, 10000);
 
-// ===== Desktop Icon Selection =====
+// ===== Mobile Detection =====
+var isMobile = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+
+// ===== Desktop Icon Actions =====
+function activateIcon(icon) {
+  var action = icon.getAttribute('data-action');
+  var href = icon.getAttribute('data-href');
+  if (action === 'openNotebook') {
+    openNotebook();
+  } else if (action === 'mailto') {
+    window.location.href = href;
+  } else if (action === 'link') {
+    window.open(href, '_blank');
+  }
+}
+
+// ===== Desktop Icon Selection & Activation =====
 document.querySelectorAll('.desktop-icon').forEach(function(icon) {
-  icon.addEventListener('click', function() {
-    document.querySelectorAll('.desktop-icon').forEach(function(i) {
-      i.classList.remove('selected');
+  if (isMobile) {
+    // Mobile: single tap to activate
+    icon.addEventListener('click', function() {
+      activateIcon(icon);
     });
-    icon.classList.add('selected');
-  });
+  } else {
+    // Desktop: click to select, double-click to activate
+    icon.addEventListener('click', function() {
+      document.querySelectorAll('.desktop-icon').forEach(function(i) {
+        i.classList.remove('selected');
+      });
+      icon.classList.add('selected');
+    });
+    icon.addEventListener('dblclick', function() {
+      activateIcon(icon);
+    });
+  }
 });
 
 document.getElementById('desktop').addEventListener('click', function(e) {
@@ -213,3 +240,14 @@ document.getElementById('desktop').addEventListener('click', function(e) {
     });
   }
 });
+
+// ===== Mobile: auto-maximize window on load =====
+if (isMobile) {
+  (function() {
+    var win = document.getElementById('notebook-window');
+    var btn = document.getElementById('maximize-btn');
+    win.classList.add('maximized');
+    btn.setAttribute('aria-label', 'Restore');
+    isMaximized = true;
+  })();
+}
