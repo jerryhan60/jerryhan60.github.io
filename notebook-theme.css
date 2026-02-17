@@ -2,18 +2,28 @@
 /* Palette: warm parchment, dusty rose, muted teal, terracotta, sage */
 /* VT323 font loaded via <link> in <head> (injected by inject-theme.py) */
 
-/* Base — warm cream with surreal subtle gradient */
+/* ===== GLOBAL RESET — override classic template base sizes ===== */
+html {
+  font-size: 20px !important;
+}
+
 body {
   background:
-    /* Faint surreal radial wash — like light through old glass */
     radial-gradient(ellipse 80% 60% at 30% 20%, rgba(210, 160, 140, 0.15) 0%, transparent 60%),
     radial-gradient(ellipse 60% 80% at 75% 70%, rgba(140, 160, 180, 0.12) 0%, transparent 60%),
     radial-gradient(ellipse 50% 50% at 50% 50%, rgba(180, 140, 170, 0.08) 0%, transparent 70%),
-    /* Base parchment */
     #f0e6d3 !important;
   color: #4a3728 !important;
-  font-family: "VT323", "VT323", monospace !important;
-  font-size: 18px !important;
+  font-family: "VT323", monospace !important;
+  font-size: 20px !important;
+  line-height: 1.6 !important;
+}
+
+/* Force VT323 everywhere */
+body, body *, div, span, p, a, li, ul, ol, h1, h2, h3, h4, h5, h6,
+pre, code, .rendered_html, .text_cell_render, div.text_cell_render,
+.input_area, .output_subarea, .prompt, .input_prompt, .output_prompt {
+  font-family: "VT323", monospace !important;
 }
 
 /* Remove default padding/margins from notebook container */
@@ -35,13 +45,14 @@ body {
 .input_prompt,
 .prompt {
   color: #7a9a8a !important;
-  font-family: "VT323", monospace !important;
   font-weight: bold !important;
+  font-size: 20px !important;
 }
 
 .output_prompt {
   color: #b08070 !important;
   font-weight: bold !important;
+  font-size: 20px !important;
 }
 
 /* ===== CODE CELLS ===== */
@@ -53,30 +64,34 @@ body {
 }
 
 .input_area pre,
-.highlight pre {
+.highlight pre,
+.CodeMirror pre,
+.CodeMirror-line,
+.CodeMirror {
   color: #4a3728 !important;
-  font-family: "VT323", "VT323", monospace !important;
-  font-size: 18px !important;
+  font-family: "VT323", monospace !important;
+  font-size: 20px !important;
+  line-height: 1.5 !important;
 }
 
 /* Syntax highlighting — warm muted palette */
-.highlight .nb { color: #5a8a7a !important; }           /* builtins — sage */
-.highlight .n  { color: #4a3728 !important; }           /* names — brown */
-.highlight .nn { color: #8a6a7a !important; }           /* module names — dusty mauve */
-.highlight .nf { color: #a05a50 !important; }           /* functions — terracotta */
+.highlight .nb { color: #5a8a7a !important; }
+.highlight .n  { color: #4a3728 !important; }
+.highlight .nn { color: #8a6a7a !important; }
+.highlight .nf { color: #a05a50 !important; }
 .highlight .s, .highlight .s1, .highlight .s2,
 .highlight .sa, .highlight .sb, .highlight .sc,
 .highlight .sd, .highlight .se, .highlight .sh,
-.highlight .si, .highlight .dl { color: #8a7a40 !important; }  /* strings — olive gold */
+.highlight .si, .highlight .dl { color: #8a7a40 !important; }
 .highlight .k, .highlight .kn, .highlight .kd,
-.highlight .kp, .highlight .kr { color: #7a5a8a !important; }  /* keywords — faded plum */
-.highlight .o, .highlight .ow { color: #a05a50 !important; }   /* operators — terracotta */
-.highlight .p  { color: #8a7a6a !important; }           /* punctuation — warm grey */
+.highlight .kp, .highlight .kr { color: #7a5a8a !important; }
+.highlight .o, .highlight .ow { color: #a05a50 !important; }
+.highlight .p  { color: #8a7a6a !important; }
 .highlight .mi, .highlight .mf, .highlight .mb,
-.highlight .mh, .highlight .mo { color: #5a8a7a !important; }  /* numbers — sage */
+.highlight .mh, .highlight .mo { color: #5a8a7a !important; }
 .highlight .c, .highlight .c1, .highlight .ch,
-.highlight .cm, .highlight .cs { color: #a09a8a !important; font-style: italic !important; } /* comments — warm stone */
-.highlight .bp { color: #8a6a7a !important; }           /* builtin pseudo — dusty mauve */
+.highlight .cm, .highlight .cs { color: #a09a8a !important; font-style: italic !important; }
+.highlight .bp { color: #8a6a7a !important; }
 
 /* ===== OUTPUT ===== */
 .output_wrapper {
@@ -92,41 +107,49 @@ body {
   background: rgba(228, 218, 198, 0.5) !important;
   border-left: 2px solid rgba(120, 140, 110, 0.25) !important;
   padding: 8px !important;
+  font-size: 20px !important;
 }
 
 .output_subarea pre {
   color: #5a6a50 !important;
   font-family: "VT323", monospace !important;
+  font-size: 20px !important;
 }
 
 /* ===== MARKDOWN CELLS ===== */
 .text_cell_render,
+div.text_cell_render,
 .rendered_html {
   color: #4a3728 !important;
-  font-family: "VT323", "VT323", monospace !important;
+  font-family: "VT323", monospace !important;
+  font-size: 20px !important;
+  line-height: 1.6 !important;
 }
 
-/* Headings — warm, no glow */
-.rendered_html h1 {
+/* Headings — absolute px sizes to override percentage-based sizing */
+.rendered_html h1,
+div.text_cell_render h1 {
   color: #a06060 !important;
   border-bottom: 1px solid rgba(160, 96, 96, 0.25) !important;
   padding-bottom: 8px !important;
   font-family: "VT323", monospace !important;
-  font-size: 36px !important;
+  font-size: 42px !important;
 }
 
-.rendered_html h2 {
+.rendered_html h2,
+div.text_cell_render h2 {
   color: #5a8a8a !important;
   border-bottom: 1px solid rgba(90, 138, 138, 0.2) !important;
   padding-bottom: 6px !important;
   font-family: "VT323", monospace !important;
-  font-size: 28px !important;
+  font-size: 34px !important;
 }
 
-.rendered_html h3 {
+.rendered_html h3,
+div.text_cell_render h3 {
   color: #8a7040 !important;
   font-family: "VT323", monospace !important;
-  font-size: 24px !important;
+  font-size: 28px !important;
 }
 
 /* Links — terracotta */
@@ -153,16 +176,20 @@ a:hover {
 .rendered_html ul,
 .rendered_html ol {
   color: #4a3728 !important;
+  font-size: 20px !important;
 }
 
 .rendered_html li {
   margin-bottom: 4px !important;
+  font-size: 20px !important;
 }
 
 /* Paragraphs */
-.rendered_html p {
+.rendered_html p,
+div.text_cell_render p {
   color: #5a4738 !important;
   line-height: 1.7 !important;
+  font-size: 20px !important;
 }
 
 /* ===== ANCHOR LINKS (paragraph markers) ===== */
