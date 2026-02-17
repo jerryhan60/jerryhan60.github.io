@@ -265,6 +265,35 @@ html, body {
   font-size: 16px;
 }
 
+/* ===== QUICK LAUNCH ===== */
+#quick-launch {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.quick-launch-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  font-size: 14px;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+  background: none;
+}
+
+.quick-launch-btn:hover {
+  border: 1px outset #fff;
+  background: #dfdfdf;
+}
+
+.quick-launch-btn:active {
+  border: 1px inset #808080;
+}
+
 .taskbar-divider {
   width: 2px;
   height: 24px;
