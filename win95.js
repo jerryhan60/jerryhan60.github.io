@@ -1,12 +1,6 @@
-// ===== Inject Vaporwave Theme into Notebook Iframe =====
+// ===== Make notebook links open in new tab =====
 document.getElementById('notebook-iframe').addEventListener('load', function() {
   var iframeDoc = this.contentDocument || this.contentWindow.document;
-  // Inject theme CSS
-  var link = iframeDoc.createElement('link');
-  link.rel = 'stylesheet';
-  link.href = 'notebook-theme.css';
-  iframeDoc.head.appendChild(link);
-  // Make all links open in a new tab (outside the iframe)
   iframeDoc.querySelectorAll('a').forEach(function(a) {
     a.setAttribute('target', '_blank');
     a.setAttribute('rel', 'noopener noreferrer');

@@ -1,6 +1,6 @@
 /* ===== FADED BEIGE RETRO THEME ===== */
 /* Palette: warm parchment, dusty rose, muted teal, terracotta, sage */
-@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+/* VT323 font loaded via <link> in <head> (injected by inject-theme.py) */
 
 /* Base — warm cream with surreal subtle gradient */
 body {
@@ -13,6 +13,7 @@ body {
     #f0e6d3 !important;
   color: #4a3728 !important;
   font-family: "VT323", "VT323", monospace !important;
+  font-size: 18px !important;
 }
 
 /* Remove default padding/margins from notebook container */
@@ -55,7 +56,7 @@ body {
 .highlight pre {
   color: #4a3728 !important;
   font-family: "VT323", "VT323", monospace !important;
-  font-size: 15px !important;
+  font-size: 18px !important;
 }
 
 /* Syntax highlighting — warm muted palette */
@@ -111,6 +112,7 @@ body {
   border-bottom: 1px solid rgba(160, 96, 96, 0.25) !important;
   padding-bottom: 8px !important;
   font-family: "VT323", monospace !important;
+  font-size: 36px !important;
 }
 
 .rendered_html h2 {
@@ -118,11 +120,13 @@ body {
   border-bottom: 1px solid rgba(90, 138, 138, 0.2) !important;
   padding-bottom: 6px !important;
   font-family: "VT323", monospace !important;
+  font-size: 28px !important;
 }
 
 .rendered_html h3 {
   color: #8a7040 !important;
   font-family: "VT323", monospace !important;
+  font-size: 24px !important;
 }
 
 /* Links — terracotta */

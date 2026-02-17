@@ -27,6 +27,9 @@ jobs:
       - name: Convert resume.ipynb to HTML
         run: jupyter nbconvert --to html --template classic resume.ipynb --output notebook.html
 
+      - name: Inject theme CSS into notebook HTML
+        run: python inject-theme.py notebook.html
+
       - name: Commit and push generated HTML
         run: |
           git config user.name "github-actions[bot]"
