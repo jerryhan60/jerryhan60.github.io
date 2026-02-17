@@ -15,7 +15,7 @@
     <div id="desktop-icons">
       <div class="desktop-icon" ondblclick="openNotebook()">
         <div class="desktop-icon-img">📓</div>
-        <div class="desktop-icon-label">My Resume.ipynb</div>
+        <div class="desktop-icon-label">About Me.ipynb</div>
       </div>
       <div class="desktop-icon" ondblclick="window.location.href='mailto:jh1161@princeton.edu'">
         <div class="desktop-icon-img">📧</div>
@@ -29,16 +29,12 @@
         <div class="desktop-icon-img">🔗</div>
         <div class="desktop-icon-label">LinkedIn.lnk</div>
       </div>
-      <div class="desktop-icon" ondblclick="window.open('data/resume.pdf','_blank')">
-        <div class="desktop-icon-img">📄</div>
-        <div class="desktop-icon-label">CV.pdf</div>
-      </div>
     </div>
 
     <!-- Notebook Window -->
     <div id="notebook-window" class="window">
       <div class="title-bar" id="notebook-title-bar">
-        <div class="title-bar-text">Jerry Han - Resume.ipynb - Jupyter Notebook</div>
+        <div class="title-bar-text">Jerry Han - About Me.ipynb - Jupyter Notebook</div>
         <div class="title-bar-controls">
           <button aria-label="Minimize" onclick="minimizeWindow()"></button>
           <button aria-label="Maximize" id="maximize-btn" onclick="toggleMaximize()"></button>
@@ -47,12 +43,12 @@
       </div>
       <div class="menu-bar">
         <ul>
-          <li>File</li>
-          <li>Edit</li>
-          <li>View</li>
-          <li>Cell</li>
-          <li>Kernel</li>
-          <li>Help</li>
+          <li onclick="showJoke('File')">File</li>
+          <li onclick="showJoke('Edit')">Edit</li>
+          <li onclick="showJoke('View')">View</li>
+          <li onclick="showJoke('Cell')">Cell</li>
+          <li onclick="showJoke('Kernel')">Kernel</li>
+          <li onclick="showJoke('Help')">Help</li>
         </ul>
       </div>
       <div class="window-body" id="notebook-body">
@@ -72,7 +68,7 @@
     </button>
     <div class="taskbar-divider"></div>
     <button id="taskbar-notebook-btn" class="taskbar-window-btn active" onclick="focusNotebook()">
-      📓 Resume.ipynb
+      📓 About Me.ipynb
     </button>
     <div class="taskbar-spacer"></div>
     <div id="system-tray">
